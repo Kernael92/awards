@@ -10,6 +10,12 @@ class Profile(models.Model):
     email = models.EmailField()
     phone_number = models.CharField(max_length = 10, blank = True)
 
+    def save_profile(self):
+        self.save()
+    def delete_profile(self):
+        self.delete()
+    
+
     def __str__(self):
         return self.user.username
 
@@ -20,6 +26,9 @@ class Project(models.Model):
     project_description = models.TextField()
     project_link = models.URLField(max_length = 245,)
 
+    
+    def save_project(self):
+        self.save()
     def __str__(self):
         return self.title
 
