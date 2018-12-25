@@ -11,7 +11,8 @@ class Profile(models.Model):
     phone_number = models.CharField(max_length = 10, blank = True)
 
 class Project(models.Model):
-    title = models.CharField(max_length = 30)
+    user_profile = models.ForeignKey(Profile,on_delete=models.CASCADE)
+    title = models.CharField(max_length = 60)
     project_image = models.ImageField(upload_to = 'projects/')
     project_description = models.TextField()
     project_link = models.URLField(max_length = 245,)
