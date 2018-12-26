@@ -25,6 +25,7 @@ class Project(models.Model):
     project_image = models.ImageField(upload_to = 'projects/')
     project_description = models.TextField()
     project_link = models.URLField(max_length = 245,)
+    pub_date = models.DateTimeField(auto_now_add=True)
 
     
     def save_project(self):
