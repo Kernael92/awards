@@ -58,11 +58,28 @@ body {
     .sidebar {padding-top: 15px;}
     .sidebar a {font-size: 18px;}
 }
-.rollover {
-    display: block;
-    background-color: khaki;
-    transition: all 0.4s ease-in-out;
-}
+@media screen and (min-height: 450px){
+    .panel {
+        box-shadow: 10px 10px 5px grey;
+    }
 
-  
-  
+}
+p {
+    font-family: cursive;
+    font-size: 25px;
+    font-style: normal;
+
+}
+.jumbotron {
+    background-image: url("../images/image4.jpeg");
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+
+}
+h1 {
+    position: center;
+    font-family: cursive;
+    font-size: 80px;
+    color: white;
+
+}
