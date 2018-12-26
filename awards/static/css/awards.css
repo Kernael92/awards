@@ -71,15 +71,22 @@ p {
 
 }
 .jumbotron {
-    background-image: url("../images/image4.jpeg");
+    background-image: url("../images/image10.jpeg");
     background-repeat: no-repeat;
     background-size: 100% 100%;
 
 }
 h1 {
-    position: center;
+    
     font-family: cursive;
-    font-size: 80px;
+   
     color: white;
+  
+    line-height: 200px;
+    margin: auto;
+    margin-top: -100px;
+    position: absolute;
+    top: 50%;
+    width: 100%;
 
 }
