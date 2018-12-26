@@ -1,0 +1,25 @@
+{%extends 'awards/base.html'%}
+{% load bootstrap3%}
+{% load static %}
+
+{%block content%}
+{{block.super}}
+<div class="container">
+    {%for project in projects%}
+    <div class="row">
+        <div class="col-sm-4 col-md-4 col-lg-4">
+            <div class="panel panel_header">
+                <p>{{project.title}}</p>
+                <div class="panel_body">
+                    <a href="{{project.project_link}}">
+                        <img src="{{project.project_image}}" alt="">
+                    </a>
+                </div>
+                <div class="panel_footer">
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{%endblock%}
