@@ -8,18 +8,27 @@
     {%for project in projects%}
     <div class="row">
         <div class="col-sm-4 col-md-4 col-lg-4">
-            <div class="panel panel_header">
-                <p>{{project.title}}</p>
-                <div class="panel_body">
+            <div class="box-item">
+                <figure class="rollover">
                     <a href="{{project.project_link}}">
-                        <img src="{{project.project_image}}" alt="">
+                        <img src="{{project.project_image.url}}" alt="" style="height: 100%;">        
                     </a>
-                </div>
-                <div class="panel_footer">
-
+                </figure> 
+                <div class="box-info">
+                    <div class="content">
+                        <div class="row">
+                            <h3>{{project.title}}</h3>
+                        </div>
+                        <div class="row row-2col">
+                            <div class="box-left">
+                                {{project.pub_date}}
+                            </div>
+                        </div>
+                    </div>   
                 </div>
             </div>
         </div>
     </div>
+    {%endfor%}
 </div>
 {%endblock%}
