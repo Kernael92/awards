@@ -16,9 +16,16 @@
 <body>
     <nav class="navbar " style="background-color: grey;">
     <div class="container-fluid">
+        {%if user.is authenticated%}
         <div class="sidebar" id="mySidebar">
             <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
             <a  href="{%url 'index'%}">Home</a>
+            <a href="/accounts/password/change">Change Password</a>
+            <a href="/logout">Logout</a>
+        {%else%}
+            <a href="/accounts/login">Login</a>
+            <a href="/accounts/registration">Sign Up</a>
+        {%endif%}
         </div>
         <div id="container">
             <button  class="openbtn" onclick="openNav()">&#9776; Menu</button> 
