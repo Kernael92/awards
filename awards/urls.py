@@ -5,6 +5,7 @@ from django.conf.urls.static import static
 
 urlpatterns = [
     url('^$',views.index, name="index"),
+    url(r'^new/project$', views.new_project, name='new-project')
 
 ]
 if settings.DEBUG:
