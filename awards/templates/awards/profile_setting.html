@@ -1,0 +1,26 @@
+{%extends 'awards/base.html'%}
+{% load bootstrap3%}
+{% load static %}
+
+{%block content%}
+{{block.super}}
+<div class="row profile-setting">
+    <div class="col-xs-12">
+        <div class="profile-pic">
+            {%if user.profile.profile_pic%}
+            <img class="profile-circle--medium" src="{{user.profile.profile_pic.url}}" alt="">
+            {%else%}
+            <img class="profile-circle--medium"src="{%static 'images/profile_placeholder.jpg%}" style="width: 200px; height: 200px;">
+            <span class="username">{{username}}</span>
+        </div>
+        <form action="{%url 'edit-profile'%}" method="post" enctype="multipart/form-data">
+            {%csrf_token%}
+            {% bootstrap_form form%}
+            <input type="submit" class="btn btn-success btn-lg" value="Post">
+            
+        </form>
+
+    </div>
+
+</div>
+{%endblock%}
