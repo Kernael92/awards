@@ -7,6 +7,7 @@ urlpatterns = [
     url('^$',views.index, name="index"),
     url(r'^new/project$', views.new_project, name='new-project'),
     url(r'^setting$', views.profile_setting, name='edit-profile'),
+    url(r'^profile$', views.profile, name='profile')
 
 ]
 if settings.DEBUG:

@@ -21,6 +21,7 @@ def new_project(request):
     else:
         form = NewProjectForm()
     return render(request, 'new_project.html', {'form': form})
+@login_required
 def profile_setting(request,username):
     user = User.objects.get(username=username)
     if request.method == 'POST':
@@ -37,6 +38,20 @@ def profile_setting(request,username):
         'form': form
     }
     return redirect(request, 'awards/profile_setting.html', context)
+def profile(request,username):
+    user = User.objects.get(username=username)
+    if not user:
+        return redirect('index')
+    profile = Profile.objects.get(user=user)
+    context = {
+        'username':username,
+        'user': user,
+        'profile': profile,
+    }
+
+    return render(request, 'awards/profile.html', context)
+
+
 
 
 
