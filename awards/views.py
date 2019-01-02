@@ -50,6 +50,18 @@ def profile(request,username):
     }
 
     return render(request, 'awards/profile.html', context)
+def search_project(request):
+    if 'project' in request.GET and request.GET['project']:
+        search_term = request.GET.get('project')
+        searched_projects = Project.search_by_title(search_term)
+        message = f"{search_term}"
+
+        return render(request, 'awards/search.html', {"message": message, "projets": searched_projects})
+    else:
+        message = "You haven't searched for any term"
+        return render(request, 'awards/search.html', {"message": message} )
+
+
 
 
 

@@ -10,21 +10,56 @@
             {%if profile.profile_pic%}
             <img class="profile-circle--medium" src="{{user.profile.profile_pic.url}}" alt="">
             {%else%}
-            <img class="profile-circle--medium"src="{%static 'images/profile_placeholder.jpg%}" style="width: 200px; height: 200px;">    
+            <img class="profile-circle--medium"src="{%static 'images/profile_placeholder.jpg'%}" style="width: 200px; height: 200px;">
+            {%endif%}    
         </div>
         <div class="col-sm-3 col-md-3 col-lg-3 right">
             <div class="name-buttons">
                 <h1 class="username">{{user.username}}</h1>
                 {%if request.user == user%}
-                <a href="{%url 'edit-profile'%}">
-                <button class="edit-profile">Edit profile</button>
+                <a href="{%url 'profile_setting' request.user.username%}">
+                <button class="profile_setting">Edit profile</button>
                 </a>
+                {%endif%} 
 
             </div>
             <div class="description">
                 <p>{% if profile.bio %}{{ profile.bio }}{% endif %}</p>
             </div>
             
+        </div>
+        <div class="profile-body">
+            {%for project in profile.project_set.all reversed%}
+            <div class="row">
+                <div class="post">
+                    <div class="col-sm-3 col-md-3 col-lg-3">
+                        <div class="panel panel-primary">
+                            <div class="panel-header">
+                                <p>{{project.title}}</p>
+
+                            </div>
+                            <div class="panel-body">
+                                <a href="{{project.project_link}}">
+                                    <img src="{{project.project_image.url}}" alt="" style="height: 100%;">
+                                </a>
+
+                            </div>
+                            <div class="panel-footer">
+                                <p>{{project.pub_date}}</p>
+
+                            </div>
+
+                        </div>
+                        
+                        
+
+                    </div>
+
+                </div>
+
+            </div>
+            {%endfor%}
+
         </div>
 
 

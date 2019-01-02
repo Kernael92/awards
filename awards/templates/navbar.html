@@ -19,9 +19,10 @@
         <div class="sidebar" id="mySidebar">
         {%if user.is_authenticated%}
             <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-            <a  href="{%url 'index'%}">Home</a>
+            <a  href="{%url 'index'%}"><i class="fa fa-home {% if request.resolver_match.url_name == 'index' %}active{% endif %}" aria-hidden="true"></i></a>
             <a href="{%url 'new-project'%}">Post Project</a>
             <a href="{%url 'profile' request.user.username %}"><i class="fa fa-user" aria-hidden="true"></i></a>
+            
             <a href="/accounts/password/change">Change Password</a>
             <a href="/logout">Logout</a>
         {%else%}
@@ -33,6 +34,19 @@
             <button  class="openbtn" onclick="openNav()">&#9776; Menu</button> 
 
         </div>
+    </div>
+    <div class="col-sm-4 col-md-4 navbar-right">
+        <form class="navbar-form" role="search" action="{%url 'search_projects'%}">
+            <div class="input-group">
+                <input type="text" class="form-control" placeholder="Search projects">
+                <div class="input-group-btn">
+                    <button class="btn btn-primary" type="submit"><i class="glyphicon glyphicon-search"></i></button>
+
+                </div>
+
+            </div>
+        </form>
+
     </div>
     </nav>
 {% block scripts%}
