@@ -1,5 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import User
+from django.db.models.signals import post_save
 from datetime import datetime
 
 # Create your models here.
@@ -11,6 +12,7 @@ class Profile(models.Model):
     email = models.EmailField()
     phone_number = models.CharField(max_length = 10, blank = True)
 
+
     def save_profile(self):
         self.save()
     def delete_profile(self):
@@ -19,6 +21,10 @@ class Profile(models.Model):
 
     def __str__(self):
         return self.user.username
+    def create_user_profile(self,sender, instance, created, **kwargs):
+        if created: 
+            Profile.objects.create(user=instance)
+    post_save.connect(create_user_profile, sender=User)
 
 class Project(models.Model):
     user_profile = models.ForeignKey(Profile,on_delete=models.CASCADE)

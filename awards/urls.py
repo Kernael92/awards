@@ -8,7 +8,7 @@ urlpatterns = [
     url(r'^new/project$', views.new_project, name='new-project'),
     url(r'^setting/(?P<username>[\w.@+-]+)/$', views.profile_setting, name='profile_setting'),
     url(r'^profile/(?P<username>[\w.@+-]+)/$', views.profile, name='profile'),
-    url(r'^search/',views.search_projects, name="search_projects"),
+    url(r'^search/',views.search_project, name="search_projects"),
 
 ]
 if settings.DEBUG:

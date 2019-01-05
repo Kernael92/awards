@@ -1,0 +1,22 @@
+2019-01-05 00:59:51.849 EAT [4091] LOG:  could not bind IPv6 address "::1": Address already in use
+2019-01-05 00:59:51.849 EAT [4091] HINT:  Is another postmaster already running on port 5432? If not, wait a few seconds and retry.
+2019-01-05 00:59:51.849 EAT [4091] LOG:  could not bind IPv4 address "127.0.0.1": Address already in use
+2019-01-05 00:59:51.849 EAT [4091] HINT:  Is another postmaster already running on port 5432? If not, wait a few seconds and retry.
+2019-01-05 00:59:51.849 EAT [4091] WARNING:  could not create listen socket for "localhost"
+2019-01-05 00:59:51.850 EAT [4091] FATAL:  could not create any TCP/IP sockets
+2019-01-05 00:59:51.850 EAT [4091] LOG:  database system is shut down
+2019-01-05 01:00:11.997 EAT [4101] LOG:  could not bind IPv6 address "::1": Address already in use
+2019-01-05 01:00:11.997 EAT [4101] HINT:  Is another postmaster already running on port 5432? If not, wait a few seconds and retry.
+2019-01-05 01:00:11.997 EAT [4101] LOG:  could not bind IPv4 address "127.0.0.1": Address already in use
+2019-01-05 01:00:11.997 EAT [4101] HINT:  Is another postmaster already running on port 5432? If not, wait a few seconds and retry.
+2019-01-05 01:00:11.997 EAT [4101] WARNING:  could not create listen socket for "localhost"
+2019-01-05 01:00:11.997 EAT [4101] FATAL:  could not create any TCP/IP sockets
+2019-01-05 01:00:11.997 EAT [4101] LOG:  database system is shut down
+2019-01-05 01:13:11.581 EAT [4144] FATAL:  lock file "postmaster.pid" already exists
+2019-01-05 01:13:11.581 EAT [4144] HINT:  Is another postmaster (PID 4102) running in data directory "/usr/local/var/postgres"?
+2019-01-05 01:37:51.372 EAT [4187] FATAL:  lock file "postmaster.pid" already exists
+2019-01-05 01:37:51.372 EAT [4187] HINT:  Is another postmaster (PID 4158) running in data directory "/usr/local/var/postgres"?
+2019-01-05 01:53:52.957 EAT [4199] FATAL:  lock file "postmaster.pid" already exists
+2019-01-05 01:53:52.957 EAT [4199] HINT:  Is another postmaster (PID 4158) running in data directory "/usr/local/var/postgres"?
+2019-01-05 01:53:57.347 EAT [4202] FATAL:  lock file "postmaster.pid" already exists
+2019-01-05 01:53:57.347 EAT [4202] HINT:  Is another postmaster (PID 4158) running in data directory "/usr/local/var/postgres"?
