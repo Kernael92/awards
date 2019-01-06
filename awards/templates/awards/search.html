@@ -4,34 +4,38 @@
 
 {%block content%}
 {{block.super}}
-<div class="row">
-    
-    {%if projects%}
-    {%for project in projects%}
-    <div class="col-sm-4 col-md-4 col-lg-4">
-        <div class="panel-group">
-            <div class="panel panel-primary">
-                <div class="panel-header">
-                    <p>{{project.title}}</p>
-                </div><br> 
-                <div class="panel-body">
-                    <a href="{{project.project_link}}">
-                        <img src="{{project.project_image.url}}" alt="" >
-                    </a>
-                </div><br><br>
-                <div class="panel-footer">
-                    <p>{{project.pub_date}}</p>
+<div class="container">
+    <div class="row">
+        {%if profiles%}
+        <h2><a href="{%url 'index'%}">Found {{projects|length}}  of searched term {{message}}</a></h2>
+        {%else%}
+        <h2>Found 0 projects for search term {{message}} </h2>
+        {%endif%}
+    </div>
+    <div class="row">
+        {%if projects%}
+            {%for project in projects%}
+        <div class="col-sm-4 col-md-4 col-lg-4">
+            <div class="panel-group">
+                <div class="panel panel-primary">
+                    <div class="panel-header">
+                        <p>{{project.title}}</p>
+                    </div><br> 
+                    <div class="panel-body">
+                        <a href="{{project.project_link}}">
+                            <img src="{{project.project_image.url}}" alt="" >
+                        </a>
+                    </div><br><br>
+                    <div class="panel-footer">
+                        <p>{{project.pub_date}}</p>
+                    </div>
                 </div>
             </div>
-        </div>
-
-        </div>
-        {%endfor %}
+            </div>
+            {%endfor %}
         {%endif%}
-    <div>
-
+        <div>
+        </div>   
     </div>
-    
-
 </div>
 {%endblock%}

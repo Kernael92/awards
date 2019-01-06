@@ -3,6 +3,7 @@ from .models import Project,Profile
 from django.contrib.auth.models import User
 from .forms import NewProjectForm,ProfileForm
 from django.contrib.auth.decorators import login_required
+from django.core.urlresolvers import reverse
 
 # Create your views here.
 def index(request):
@@ -24,13 +25,15 @@ def new_project(request):
 @login_required
 def profile_setting(request,username):
     user = User.objects.get(username=username)
+    if request.user != user:
+        return redirect('index')
     if request.method == 'POST':
         form = ProfileForm(request.POST, request.FILES)
         if form.is_valid():
             profile = form.save(commit = False)
             profile.user = user
             profile.save
-        return redirect ('index')
+        return redirect (reverse('profile',{'username':user.username}))
     else:
         form = ProfileForm()
     context = {
@@ -50,7 +53,7 @@ def profile(request,username):
     }
 
     return render(request, 'awards/profile.html', context)
-def search_project(request):
+def search_projects(request):
     if 'project' in request.GET and request.GET['project']:
         search_term = request.GET.get('project')
         searched_projects = Project.search_by_title(search_term)
