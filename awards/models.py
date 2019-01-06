@@ -2,6 +2,9 @@ from django.db import models
 from django.contrib.auth.models import User
 from django.db.models.signals import post_save
 from datetime import datetime
+import numpy as np
+from django.db.models import Avg, Max, Min
+
 
 # Create your models here.
 class Project(models.Model):
@@ -20,8 +23,26 @@ class Project(models.Model):
     
     def save_project(self):
         self.save()
+
     def delete_project(self):
         self.delete()
+
+    def average_content(self):
+        content_ratings = list(map(lambda x: x.content_rating, self.reviews.all()))
+        return np.mean(content_ratings)
+
+
+
+
+
+
+
+
+
+
+
+
+
     def __str__(self):
         return self.title
     
@@ -63,10 +84,19 @@ class Review(models.Model):
     )
     project = models.ForeignKey(Project, null=True,blank=True, on_delete=models.CASCADE,related_name='reviews')
     user = models.ForeignKey(User,null=True,on_delete=models.CASCADE,related_name='reviews')
-    Comment = models.TextField()
+    comment = models.TextField()
     content_rating = models.IntegerField(choices=RATING_CHOICES,default=0)
     design_rating = models.IntegerField(choices=RATING_CHOICES,default=0)
     usability_rating = models.IntegerField(choices=RATING_CHOICES,default=0)
+
+    def save_comment(self):
+        self.save()
+    def get_comment(self, id):
+        comments = Review.objects.filter(project_id = id)
+        return comments
+    def __str__(self):
+        return self.comment
+
 
 
 
