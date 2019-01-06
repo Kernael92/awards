@@ -16,7 +16,7 @@ def new_project(request):
         form = NewProjectForm(request.POST, request.FILES)
         if form.is_valid():
             project = form.save(commit = False)
-            project.user_profile = current_user
+            project.user = current_user
             project.save()
         return redirect ('index')
     else:

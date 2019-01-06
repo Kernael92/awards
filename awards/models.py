@@ -47,7 +47,29 @@ class Profile(models.Model):
 
     def __str__(self):
         return self.user.username
-    
+
+class Review(models.Model):
+    RATING_CHOICES = (
+        (1, '1'),
+        (2, '2'),
+        (3, '3'),
+        (4, '4'),
+        (5, '5'),
+        (6, '6'),
+        (7, '7'),
+        (8, '8'),
+        (9, '9'),
+        (10, '10'),
+    )
+    project = models.ForeignKey(Project, null=True,blank=True, on_delete=models.CASCADE,related_name='reviews')
+    user = models.ForeignKey(User,null=True,on_delete=models.CASCADE,related_name='reviews')
+    Comment = models.TextField()
+    content_rating = models.IntegerField(choices=RATING_CHOICES,default=0)
+    design_rating = models.IntegerField(choices=RATING_CHOICES,default=0)
+    usability_rating = models.IntegerField(choices=RATING_CHOICES,default=0)
+
+
+
     
 
 
