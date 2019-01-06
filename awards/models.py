@@ -28,6 +28,14 @@ class Project(models.Model):
         self.delete()
 
     def average_content(self):
+        design_ratings = list(map(lambda x: x.design_rating, self.reviews.all()))
+        return np.mean(design_ratings)
+
+    def average_content(self):
+        usability_ratings = list(map(lambda x: x.usability_rating, self.reviews.all()))
+        return np.mean(usability_ratings)
+
+    def average_content(self):
         content_ratings = list(map(lambda x: x.content_rating, self.reviews.all()))
         return np.mean(content_ratings)
 
