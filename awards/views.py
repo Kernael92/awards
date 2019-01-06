@@ -1,7 +1,7 @@
 from django.shortcuts import render,redirect,get_object_or_404
 from .models import Project,Profile,Review
 from django.contrib.auth.models import User
-from .forms import NewProjectForm,ProfileForm
+from .forms import NewProjectForm,ProfileForm,ReviewForm
 from django.contrib.auth.decorators import login_required
 from django.core.urlresolvers import reverse
 from django.http  import HttpResponse, Http404, HttpResponseRedirect, JsonResponse
@@ -65,11 +65,36 @@ def search_projects(request):
         message = "You haven't searched for any term"
         return render(request, 'awards/search.html', {"message": message} )
 def project(request, id):
-    try:
-        project = Project.objects.get(pk = id)
+    project = Project.objects.get(pk = id)
+    current_user = request.user
+    comments = Review.get_comment(Review,id)
+    review_list = Review.objects.all()
 
-    except DoesNotExist:
-        raise Http404()
+    if request.method == 'POST':
+        form = ReviewForm(request.POST)
+        if form.is_valid():
+            design_rating = form.cleaned_data['design_rating']
+            usability_rating = form.cleaned_data['usability_rating']
+            content_rating = form.cleaned_data['content_rating']
+            comment = form.cleaned_data['comment']
+            review = Review()
+            review.project = project
+            review.user = current_user
+            review.comment = comment
+            review.design_rating = design_rating
+            review.usability_rating = usability_rating
+            review.content_rating = content_rating
+            review.save()
+        else:
+            form = ReviewForm
+        context = {
+            'project': project,
+            'form':form,
+            'comments':comments,
+            'review_list':review_list
+
+        }
+        return render(request, 'awards/project.html', context)
 
 
 
