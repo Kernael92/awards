@@ -20,11 +20,11 @@
                     <div class="panel-body">
                         <a href="{{project.project_link}}">
                             <img class="panel_main-image" src="{{project.project_image.url}}" alt="" >
-                        </a>
+                        </a><br><br>
                        
-                        <h2 class="badge badge-pill badge-primary" style="font-size: 30px; font-family: cursive; text-align:center;"><a href="{{project.project_link}}">View site</a></h2>
+                        <h2  style="font-size: 30px; font-family: cursive; text-align:center;"><a href="{{project.project_link}}">View site</a></h2>
                         <br>
-                        <span class="badge badge-pill badge-success" style="font-size: 30px; font-family: cursive;"><a href="{%url 'project' project.id%}">Review project</a></span>
+                        <h2 style="font-size: 30px; font-family: cursive; text-align:center;"><a href="{%url 'project' project.id%}">Review project</a></h2>
                     </div><br><br>
                     <div class="panel-footer">
                         <p>{{project.pub_date}}</p>
