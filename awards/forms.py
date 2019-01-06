@@ -1,6 +1,6 @@
-from .models import Project,Profile
+from .models import Project,Profile,Review
 from django import forms
-from django.forms import ModelForm
+from django.forms import ModelForm,Textarea, IntegerField
 
 class NewProjectForm(forms.ModelForm):
     class Meta:
@@ -11,3 +11,11 @@ class ProfileForm(forms.ModelForm):
     class Meta:
         model = Profile
         fields = ['profile_pic','bio','email']
+
+class ReviewForm(forms.ModelForm):
+    class Meta:
+        model = Review
+        fields = [ 'usability_rating', 'design_rating', 'content_rating' , 'comment']
+        widgets = {
+            'comment': Textarea(attrs={'cols': 40, 'rows': 15}),
+        }

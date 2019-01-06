@@ -1,9 +1,10 @@
-from django.shortcuts import render,redirect
-from .models import Project,Profile
+from django.shortcuts import render,redirect,get_object_or_404
+from .models import Project,Profile,Review
 from django.contrib.auth.models import User
 from .forms import NewProjectForm,ProfileForm
 from django.contrib.auth.decorators import login_required
 from django.core.urlresolvers import reverse
+from django.http  import HttpResponse, Http404, HttpResponseRedirect, JsonResponse
 
 # Create your views here.
 def index(request):
@@ -63,6 +64,12 @@ def search_projects(request):
     else:
         message = "You haven't searched for any term"
         return render(request, 'awards/search.html', {"message": message} )
+def project(request, id):
+    try:
+        project = Project.objects.get(pk = id)
+
+    except DoesNotExist:
+        raise Http404()
 
 
 

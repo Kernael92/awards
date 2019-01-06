@@ -39,25 +39,18 @@ class Project(models.Model):
         content_ratings = list(map(lambda x: x.content_rating, self.reviews.all()))
         return np.mean(content_ratings)
 
-
-
-
-
-
-
-
-
-
-
-
+    @classmethod
+    def update_project(cls,id):
+        projects = cls.objects.filter(id=id).update(id=id)
+        return projects
 
     def __str__(self):
         return self.title
     
     @classmethod
     def search_projects(cls,search_term):
-        project = cls.objects.filter(title__icontains=search_term)
-        return project
+        projects = cls.objects.filter(title__icontains=search_term)
+        return projects
 
 class Profile(models.Model):
     user = models.ForeignKey(User,on_delete=models.CASCADE)
