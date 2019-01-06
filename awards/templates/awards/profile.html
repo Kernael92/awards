@@ -18,7 +18,7 @@
                 <h1 class="username">{{user.username}}</h1>
                 <h2 class="email">{{profile.email}}</h2>
                 {%if request.user == user%}
-                <a href="{%url 'profile_setting' request.user.username%}">
+                <a href="{%url 'profile_setting' %}">
                 <button class="profile_setting">Edit profile</button>
                 </a>
                 {%endif%} 
