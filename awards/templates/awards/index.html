@@ -5,15 +5,22 @@
 {%block content%}
 {{block.super}}
 <div class="container">
+    <div class="jumbotron text-center mb-0" id="jumbo" style="background-color:white;">
+    
+        <h1 class="h1" style="font-family: cursive; color:blue;font-size:70px;">AWARDS</h1>
+        <p class="h1" style="font-family: cursive; color:black;font-size:35px;">View projects, submit your own projects and have them reviewed.</p>
+    </div>
+</div>
+<div class="container">
     <!-- <div class="jumbotron" style="height:100vh;">
         <h1> AWARDS</h1>
 
     </div> -->
     {%for project in projects%}
     <div class="row">
-        <div class="col-sm-6 col-md-6 col-lg-6">
+        <div class="col-sm-12 col-md-12 col-lg-12">
             <div class="panel-group">
-                <div class="panel panel-primary">
+                <div class="panel panel-default">
                     <div class="panel-header">
                         <p style="text-align:center;">{{project.title}}</p>
                     </div><br> 
