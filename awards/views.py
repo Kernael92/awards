@@ -64,6 +64,8 @@ def search_projects(request):
     else:
         message = "You haven't searched for any term"
         return render(request, 'awards/search.html', {"message": message} )
+
+@login_required       
 def project(request, id):
     project = Project.objects.get(pk = id)
     current_user = request.user
