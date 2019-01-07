@@ -1,6 +1,12 @@
 # Kernael92's Awards
 # https://kernelawards.herokuapp.com/
 
+* Profile API endpoint
+## http://127.0.0.1:8000/api/profile
+
+* Project API endpoint
+## http://127.0.0.1:8000/api/project
+
 
 ## Built By [Kernael Apuko](https://github.com/kernael92/)
 
