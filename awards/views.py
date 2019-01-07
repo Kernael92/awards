@@ -7,7 +7,8 @@ from django.core.urlresolvers import reverse
 from django.http  import HttpResponse, Http404, HttpResponseRedirect, JsonResponse
 from rest_framework.response import Response
 from rest_framework.views import APIView
-from .serializer import ProfileSerializer
+from .serializer import ProfileSerializer,ProjectSerializer
+from rest_framework import status
 
 
 # Create your views here.
@@ -110,6 +111,28 @@ class ProfileList(APIView):
         all_profile = Profile.objects.all()
         serializers = ProfileSerializer(all_profile, many=True)
         return Response(serializers.data)
+    def post(self,request,format=None):
+        serializers = ProfileSerializer(data=request.data)
+        if serializers.is_valid():
+            serializers.save()
+            return Response(serializers.data, status=status.HTTP_201_CREATED)
+        return Response(serializers.errors, status=status.HTTP_400_BAD_REQUEST)
+
+class ProjectList(APIView):
+    def get(self,request,format=None):
+        all_project = Project.objects.all()
+        serializers = ProjectSerializer(all_project, many=True)
+        return Response(serializers.data)
+
+    def post(self,request,format=None):
+        serializers = ProjectSerializer(data=request.data)
+        if serializers.is_valid():
+            serializers.save()
+            return Response(serializers.data, status=status.HTTP_201_CREATED)
+        return Response(serializers.errors, status=status.HTTP_400_BAD_REQUEST)
+
+
+
 
 
 
