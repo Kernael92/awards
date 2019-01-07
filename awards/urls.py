@@ -10,7 +10,8 @@ urlpatterns = [
     url(r'^profile/(?P<username>[\w.@+-]+)/$', views.profile, name='profile'),
     url(r'^search/',views.search_projects, name="search_projects"),
     url(r'project(\d+)',views.project, name='project'),
-    url(r'^api/profile/$', views.ProfileList.as_view())
+    url(r'^api/profile/$', views.ProfileList.as_view()),
+    url(r'^api/project/$', views.ProjectList.as_view())
 
 ]
 if settings.DEBUG:
