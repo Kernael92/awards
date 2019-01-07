@@ -5,6 +5,10 @@ from .forms import NewProjectForm,ProfileForm,ReviewForm
 from django.contrib.auth.decorators import login_required
 from django.core.urlresolvers import reverse
 from django.http  import HttpResponse, Http404, HttpResponseRedirect, JsonResponse
+from rest_framework.response import Response
+from rest_framework.views import APIView
+from .serializer import ProfileSerializer
+
 
 # Create your views here.
 def index(request):
@@ -100,6 +104,12 @@ def project(request, id):
 
     }
     return render(request, 'awards/project.html', context)
+
+class ProfileList(APIView):
+    def get(self, request, format=None):
+        all_profile = Profile.objects.all()
+        serializers = ProfileSerializer(all_profile, many=True)
+        return Response(serializers.data)
 
 
 
