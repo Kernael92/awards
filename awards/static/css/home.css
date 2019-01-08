@@ -1,0 +1,23 @@
+body {
+    background-image: url(../images/image.jpg);
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    margin: 20px;
+    border: 20px;
+    padding: 0px;
+    width: 100vw;
+    height: 100vh;
+
+}
+.panel {
+    height: 100%;
+    width: 100%;
+    top: 50%;
+}
+h3 {
+    font-family: cursive;
+    font-size: 40px;
+    font-weight: bolder;
+}

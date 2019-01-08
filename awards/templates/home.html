@@ -21,8 +21,20 @@
 
     </head>
     <body>
-        {%include 'navbar.html'%}
+        
         {%block content%}
+        <div class="container">
+            <div class="homeheaderbody">
+                <div class="homeheader">
+                    <h1>Welcome!</h1>
+        
+                </div>
+                <div ><a href="/accounts/login/"><p class="login">LOGIN!</p></a></div><br><br>
+                <div><a href="/accounts/register/"><p class="signup">SIGNUP!</p></a></div>
+        
+            </div>
+        
+        </div>
          
         {%endblock%}
 
