@@ -9,9 +9,9 @@ body {
     padding: 0px;
     width: 100vw;
     height: 100vh;
-    padding: 20px;
-    margin: 20px;
-    border: 20px;
+    padding: 10px;
+    margin: 10px;
+    border: 10px;
 }
 .sidebar {
     height: 100%; /* 100% Full-height */
@@ -81,11 +81,14 @@ p {
 
 }
 .jumbotron {
-    background-image: url("../images/image10.jpeg");
+    background-image: url("../images/road.jpg");
     background-repeat: no-repeat;
-    background-size: 100% 100%;
-
+    background-size: cover; 
+    height: 100%;
+    width: 100%;
 }
+
+
 h1 {
     
     font-family: cursive;
@@ -107,6 +110,7 @@ h1 {
     height: auto;
     margin: 0 auto;
     display: block;
+    
 }
 .email {
     font-size: 20px;
@@ -120,4 +124,7 @@ h1 {
 }
 .badge {
     position: center;
+}
+.panel {
+    box-shadow: 10px 10px 5px grey;
 }
