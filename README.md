@@ -59,8 +59,8 @@ Admin should:
 ### Cloning
 * In your terminal:
 
-        $ git clone https://github.com/kernael92/kernel-instagram
-        $ cd kernel-instagram
+        $ git clone https://github.com/kernael92/kernel-awards
+        $ cd kernel-awards
 
 ## Running the Application
 * Creating the virtual environment
